@@ -11,7 +11,7 @@ try {
      await fs.writeFile(DIRNAME, JSON.stringify(newData));
     return;
     } catch (error) {
-        console.error(`Erro na escrita do arquivo: ${error}`);
+        console.error('Erro na escrita do arquivo');
     }
 }
 

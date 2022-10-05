@@ -12,7 +12,7 @@ const writeTalkerFile = async (data) => {
         await fs.writeFile(PATH_TALKER, JSON.stringify([...oldData, newData]));
         return newData;
     } catch (error) {
-        console.error(`Erro na escrita do arquivo: ${error}`);
+        console.error('Erro na escrita do arquivo');
     }
 };
 

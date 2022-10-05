@@ -1,10 +1,11 @@
 const express = require('express');
-const { readTalkersData } = require('../utils/readTalkerFile.js');
+const { readTalkersData } = require('../utils/readTalkerFile');
 const writeTalkerFile = require('../utils/writeTalkerFile');
 const tokenVerify = require('../utils/tokenVerify');
 const talkerVerify = require('../utils/talkerVerify.js');
-const { verifyTalk, watchedAtAndRateVerify } = require('../utils/talkVerify.js');
-const deleteTalker = require('../utils/deleteFile.js');
+const { verifyTalk, watchedAtAndRateVerify } = require('../utils/talkVerify');
+const deleteTalker = require('../utils/deleteFile');
+const editTalker = require('../utils/editTalker');
 
 const app = express.Router();
 
@@ -26,7 +27,7 @@ app.get('/search', tokenVerify, async (req, res) => {
 app.get('/:id', async (req, res) => {
    const { id } = req.params;
    const talkers = await readTalkersData();
-   const findIdTalker = talkers.find((talker) => talker.id === +id);
+   const findIdTalker = talkers.find((talker) => talker.id === Number(id));
    if (findIdTalker) {
       return res.status(200).json(findIdTalker);
    }
@@ -39,12 +40,24 @@ app.delete('/talker/:id', tokenVerify, async (req, res) => {
      return res.status(204).json(newData);
    });
 
-app.use(tokenVerify);
-
 app.post('/', tokenVerify, talkerVerify, verifyTalk, watchedAtAndRateVerify, 
 async (req, res) => {
    const newWrite = await writeTalkerFile(req.body);
    return res.status(201).json(newWrite);
+});
+
+app.put('/talker/:id', tokenVerify, talkerVerify, verifyTalk, watchedAtAndRateVerify, 
+async (req, res) => {
+  const { id } = req.params;
+  const upDateTalker = await editTalker({ id: Number(id), ...req.body });
+  console.log(upDateTalker.talk.rate);
+    return res.status(200).json(upDateTalker);
+  });
+
+app.delete('/:id', tokenVerify, async (req, res) => {
+   const { id } = req.params;
+   const update = await deleteTalker(Number(id));
+   return res.status(204).json(update);
 });
 
 module.exports = app;
