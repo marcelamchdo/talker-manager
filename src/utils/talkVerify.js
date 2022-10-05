@@ -9,7 +9,7 @@ function verifyTalk(req, res, next) {
   if (!talk.watchedAt) {
   return res.status(400).json({ message: 'O campo "watchedAt" é obrigatório' });
   }
-  if (!talk.rate) {
+  if (!talk.rate && talk.rate !== 0) {
     return res.status(400).json({ message: 'O campo "rate" é obrigatório' });
     }
   next();
@@ -23,6 +23,9 @@ function watchedAtAndRateVerify(req, res, next) {
   if (!(talk.rate >= NUMBER_MIN && talk.rate <= NUMBER_MAX)) {
     return res.status(400).json({ message: 'O campo "rate" deve ser um inteiro de 1 à 5' });
   }
+  if (!talk.rate) {
+    return res.status(400).json({ message: 'O campo "rate" é obrigatório' });
+    }
   next();
 }
 

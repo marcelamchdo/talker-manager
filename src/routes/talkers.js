@@ -46,12 +46,12 @@ async (req, res) => {
    return res.status(201).json(newWrite);
 });
 
-app.put('/talker/:id', tokenVerify, talkerVerify, verifyTalk, watchedAtAndRateVerify, 
+app.put('/:id', tokenVerify, talkerVerify, verifyTalk, watchedAtAndRateVerify, 
 async (req, res) => {
   const { id } = req.params;
-  const upDateTalker = await editTalker({ id: Number(id), ...req.body });
-  console.log(upDateTalker.talk.rate);
-    return res.status(200).json(upDateTalker);
+  const updateTalker = await editTalker({ id: Number(id), ...req.body });
+  console.log(updateTalker.talk.rate);
+    return res.status(200).json(updateTalker);
   });
 
 app.delete('/:id', tokenVerify, async (req, res) => {
