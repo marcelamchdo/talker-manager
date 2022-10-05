@@ -13,6 +13,6 @@ try {
     } catch (error) {
         console.error('Erro na escrita do arquivo');
     }
-}
+};
 
 module.exports = deleteTalker;
