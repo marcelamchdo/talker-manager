@@ -4,6 +4,7 @@ const writeTalkerFile = require('../utils/writeTalkerFile');
 const tokenVerify = require('../utils/tokenVerify');
 const talkerVerify = require('../utils/talkerVerify.js');
 const { verifyTalk, watchedAtAndRateVerify } = require('../utils/talkVerify.js');
+const deleteTalker = require('../utils/deleteFile.js');
 
 const app = express.Router();
 
@@ -31,6 +32,12 @@ app.get('/:id', async (req, res) => {
    }
    return res.status(404).json({ message: 'Pessoa palestrante não encontrada' });
 });
+
+app.delete('/talker/:id', tokenVerify, async (req, res) => {
+   const { id } = req.params;
+   const newData = await deleteTalker(Number(id));
+     return res.status(204).json(newData);
+   });
 
 app.use(tokenVerify);
 
