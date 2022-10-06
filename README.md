@@ -1,8 +1,8 @@
 ## Talker Manager
 ---
-<!-- ![wallet](https://user-images.githubusercontent.com/94760136/192841426-1b537e80-6991-4383-a364-c8e8a0a1a427.gif)
+![image](https://user-images.githubusercontent.com/94760136/194197237-5bfe22c9-3657-4fb1-9da5-3713c011d5f5.png)
 
-### 📌 <a href="https://bluewallet.vercel.app/">Clique aqui</a> para acessar o projeto -->
+<!-- ### 📌 <a href="https://bluewallet.vercel.app/">Clique aqui</a> para acessar o projeto --> -->
 
 ### <strong>💻 Sobre</strong>
 Esse projeto foi desenvolvido durante o curso de desenvolvimento web da Trybe durante o módulo de back-end. O projeto Talker Manager contou com a construção de uma aplicação de cadastro de palestrantes, onde será possível cadastrar, visualizar, pesquisar, editar e excluir informações.
