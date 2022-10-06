@@ -1,5 +1,6 @@
 ## Talker Manager
 ---
+![image](https://user-images.githubusercontent.com/94760136/194197405-0bc6c089-f712-4f3f-ac68-492521673f3e.png)
 ![image](https://user-images.githubusercontent.com/94760136/194197237-5bfe22c9-3657-4fb1-9da5-3713c011d5f5.png)
 
 <!-- ### 📌 <a href="https://bluewallet.vercel.app/">Clique aqui</a> para acessar o projeto -->
